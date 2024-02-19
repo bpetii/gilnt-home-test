@@ -14,12 +14,12 @@ Before running this application, ensure that you have the following prerequisite
 ## Installation
 1. Clone the repository to your local machine:
 ```
-git clone https://github.com/your-username/react-vite-typescript-nodejs-project.git
+git clone https://github.com/bpetii/gilnt-home-test.git
 ```
 
 2. Navigate to the project directory:
 ```
-cd react-vite-typescript-nodejs-project
+cd gilnt-home-test
 ```
 
 3. Install dependencies using Yarn:
