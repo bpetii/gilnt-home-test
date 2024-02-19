@@ -22,7 +22,7 @@ def process_data(latitude, longitude):
     return json.dumps({'max_value': max_value, 'unit': unit})
 
 if __name__ == "__main__":
-    latitude = float(0)
-    longitude = float(0)
+    latitude = float(sys.argv[1])
+    longitude = float(sys.argv[2])
     result = process_data(latitude, longitude)
     print(result)
