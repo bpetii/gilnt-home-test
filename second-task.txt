@@ -1,0 +1,12 @@
+
+To solve the problem of finding the maximum wave height since 1979, I would follow these steps:
+1. Get the netcdf file which includes all the data from 1979.
+2. If we have a netcdf file with even more data dating back before 1979, I would filter data to include measurements since 1979 : 
+`data_since_1979 = data_at_specific_location.sel(time=slice('1979-01-01'))`
+3. I also would use my current solution to compute the maximium wave height from the filtered dataset: `data_since_1979.hmax.max().values.item()`
+4. Considering the longer time span and potential data quality issue with historical records, I would perform quality check or create a guard to validate the computed maximum value.
+
+
+Points of concerns:
+- Mentioned before - data quality
+- Computational resources - analyzing such a huge dataset (over 5-10 million) spanning several decades require significant resources.
