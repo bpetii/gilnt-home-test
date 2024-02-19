@@ -25,7 +25,6 @@ cd react-vite-typescript-nodejs-project
 3. Install dependencies using Yarn:
 ```
 yarn
-
 ```
 
 This command will install both frontend and backend dependencies.
