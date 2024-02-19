@@ -11,12 +11,12 @@ const Map = () => {
   
   const [selectedPosition, setSelectedPosition] = useState<[number, number]>([0,0]);
 
-  useEffect(() => {
+  /* useEffect(() => {
     navigator.geolocation.getCurrentPosition(position => {
         const { latitude, longitude } = position.coords;
         setSelectedPosition([latitude, longitude])
     });
-  }, []); 
+  }, []);  */
 
   useEffect(() => {
     if (selectedPosition?.[0] && selectedPosition[0]) {

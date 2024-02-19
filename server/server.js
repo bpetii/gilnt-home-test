@@ -7,16 +7,17 @@ const port = 3000;
 
 app.use(bodyParser.json());
 
-const roundCoordinates = ({latitude, longitude}) => {
-    // Round latitude and longitude to numbers ending in .0 or .5
+//we dont need it actually since we use method='nearest' in python xarray
+/* const roundCoordinates = ({latitude, longitude}) => {
+    // Round latitude and longitude to numbers ending in .0 or .5.
     const roundedLatitude = Math.floor(latitude * 2) / 2;
     const roundedLongitude = Math.floor(longitude * 2) / 2;
 
     return { latitude: roundedLatitude, longitude: roundedLongitude };
-}
+} */
 
 app.get('/api/climate_data', (req, res) => {
-  const {longitude, latitude} = roundCoordinates(req.query)
+  const {longitude, latitude} = req.query
 	const process = spawn('python3', ["server/python.py", latitude.toString(), longitude.toString()] );
 	let data = '';
 	
