@@ -27,11 +27,10 @@ const Map = () => {
           const {value, unit} = data;
           setMaxWaveHeight(value);
           setUnit(unit)
-          setError(null); // Reset error state on successful fetch
+          setError(null);
         })
         .catch(err => {
-          console.error('Error fetching data:', err);
-          setError('Failed to fetch data'); // Set error state
+          setError(err);
           setMaxWaveHeight(null);
           setUnit(null)
         });
