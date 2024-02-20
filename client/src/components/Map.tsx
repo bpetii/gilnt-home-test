@@ -30,7 +30,7 @@ const Map = () => {
           setError(null);
         })
         .catch(err => {
-          setError(err);
+          setError(err.toString());
           setMaxWaveHeight(null);
           setUnit(null)
         });
@@ -38,6 +38,7 @@ const Map = () => {
   }, [selectedPosition]);
 
 
+  console.log(error)
   const Markers = () => {
     useMapEvents({
       click(e) {                                
