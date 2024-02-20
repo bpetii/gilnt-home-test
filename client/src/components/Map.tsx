@@ -37,8 +37,6 @@ const Map = () => {
     }
   }, [selectedPosition]);
 
-
-  console.log(error)
   const Markers = () => {
     useMapEvents({
       click(e) {                                
