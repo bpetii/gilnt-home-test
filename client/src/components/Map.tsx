@@ -55,7 +55,7 @@ const Map = () => {
         position={selectedPosition}
         >
           <Popup>
-            {error && 'Error: ' + error}
+            {error && error}
             {maxWaveHeight !== null && `Max Wave Height: ${round(maxWaveHeight)}|${unit}` }
           </Popup>
         </Marker>
