@@ -10,7 +10,6 @@ const Map = () => {
   const [maxWaveHeight, setMaxWaveHeight] = useState(null);
   const [unit, setUnit] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
-  
   const [selectedPosition, setSelectedPosition] = useState<[number, number] | null>(null);
 
   /* useEffect(() => {

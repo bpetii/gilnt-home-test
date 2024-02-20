@@ -1,0 +1,7 @@
+After running my python.py file using my process_data function:  
+
+latitude = float(0.0)
+longitude = float(0.0)
+result = process_data(latitude, longitude) 
+
+The result is {"max_value": 2.325990676879883, "unit": "m"}.
