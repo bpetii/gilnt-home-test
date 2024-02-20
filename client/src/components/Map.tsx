@@ -4,12 +4,14 @@ import "leaflet/dist/leaflet.css";
 import {round} from './utils';
 import {fetchHmax} from '../api/fetchHmax';
 
+const INITIAL_CENTER = [0,0];
+
 const Map = () => {
   const [maxWaveHeight, setMaxWaveHeight] = useState(null);
   const [unit, setUnit] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
   
-  const [selectedPosition, setSelectedPosition] = useState<[number, number]>([0,0]);
+  const [selectedPosition, setSelectedPosition] = useState<[number, number] | null>(null);
 
   /* useEffect(() => {
     navigator.geolocation.getCurrentPosition(position => {
@@ -63,7 +65,7 @@ const Map = () => {
   }
 
   return (
-    <MapContainer center={selectedPosition} zoom={2} style={{ height: '500px', width: '100%' }}>
+    <MapContainer center={INITIAL_CENTER || selectedPosition} zoom={2} style={{ height: '500px', width: '100%' }}>
       <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
       <Markers />
     </MapContainer>
