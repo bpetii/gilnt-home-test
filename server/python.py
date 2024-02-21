@@ -16,10 +16,10 @@ def process_data(latitude, longitude):
 
     data_at_specific_location = ds.sel(latitude = latitude, longitude = longitude, method='nearest')
 
-    max_value = data_at_specific_location.hmax.max().values.item()
+    max_value = data_at_specific_location.hmax.values.max()
     unit = data_at_specific_location.hmax.units
 
-    return json.dumps({'max_value': max_value, 'unit': unit})
+    return json.dumps({'max_value': float(max_value), 'unit': unit})
 
 if __name__ == "__main__":
     latitude = float(sys.argv[1])
