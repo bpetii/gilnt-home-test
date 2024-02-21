@@ -15,7 +15,7 @@ If you assume that the data quality is ok, and assume that the data comes in as 
 
 1. I'd setup system to ingest daily netCDF file into the application. It's either a scheduled task or a real-time monitoring for new files.
 2. Storing netCDF file efficiently (InfluxDB), maybe I would store the max wave height per location to be a reference point for the daily netcdf file.
-3. Given that each day's data consists of 4.5 million data points, developing an algorithm the process the netCDF file would be efficient and necessary.
+3. Given that each day's data consists of 4.5 million data points, developing an algorithm to process the netCDF file would be efficient and necessary.
 However python is really powerful processing huge data using xarray, thus consistently storing the highest wave in a database and updating it daily, provided the new netCDF file contains a larger value, is feasible and manageable.
 4. We only want to process new or updated files since the last run, so I would implement a mechanism to track the processed files and only process the new ones.
 

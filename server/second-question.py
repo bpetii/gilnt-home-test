@@ -16,8 +16,6 @@ def update_database(locations, max_wave_height, date):
 def main():
     latitude = float(sys.argv[1])
     longitude = float(sys.argv[2])
-    # Max wave for that location since 1979
-    max_wave = float(sys.argv[3])
 
     # Load list of processed files from a database or file
     processed_files = set()
@@ -28,7 +26,7 @@ def main():
             ds = xr.open_dataset(file_path)
             date_string = ds.time.values.max()
             date_format = '%Y-%m-%d'
-            date = datetime.strptime(date_string, date_format)
+            date = datetime.strptime(date_string, date_format) # i.e: 2022-02-15
 
             # Process the netCDF file
             max_wave_height = process_netcdf_file(ds)
