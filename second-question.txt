@@ -19,7 +19,7 @@ If you assume that the data quality is ok, and assume that the data comes in as 
 However python is really powerful processing huge data using xarray, thus consistently storing the highest wave in a database and updating it daily, provided the new netCDF file contains a larger value, is feasible and manageable.
 4. We only want to process new or updated files since the last run, so I would implement a mechanism to track the processed files and only process the new ones.
 
-This approach ensures that only the highest wave height for each day is stored in the database, simplifying the processing algorithm. It leverages the efficient data handling capabilities of xarray for working with large netCDF files in Python.
+This approach ensures that only the highest wave height for each day is stored in the database, simplifying the processing algorithm.
 
 I provided an example called second-question.py
 
