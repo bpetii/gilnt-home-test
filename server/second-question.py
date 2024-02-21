@@ -1,6 +1,5 @@
 import xarray as xr
 import pandas as pd
-import numpy as np
 
 def process_netcdf_file(ds, latitude, longitude):    
     # Extract location coordinates
@@ -39,9 +38,9 @@ def main():
 
     print("Processed files:", processed_files)
 
-def get_new_file():
+def get_new_files():
     # Function to retrieve new or updated netCDF files since the last run
-    return 'path/to/file1.nc'
+    return ['path/to/file1.nc', ...]
 
 if __name__ == "__main__":
     main()
