@@ -1,11 +1,14 @@
 import express from 'express';
 import { spawn } from 'child_process';
 import bodyParser from 'body-parser';
+import cors from 'cors';
+
 
 const app = express();
 const port = 3000;
 
 app.use(bodyParser.json());
+app.use(cors());
 
 //we dont need it actually since we use method='nearest' in python xarray
 /* const roundCoordinates = ({latitude, longitude}) => {
@@ -25,23 +28,19 @@ app.get('/api/climate_data', (req, res) => {
 		data += chunk.toString();
 	});
 
-	process.on('close', (code) => {
-		if (code === 0) {
-			try {
-				const result = JSON.parse(data);
-				const {max_value: maxValue, unit} = result;
-				const processedData = parseFloat(maxValue);
-		
-				if (!isNaN(processedData)) {
-					res.json({ hmax: processedData, unit: unit });
-				} else {
-					res.status(500).json({ error: 'Internal Server Error' });
-				}
-			} catch (error) {
+	process.on('close', () => {
+		try {
+			const result = JSON.parse(data);
+			const {max_value: maxValue, unit} = result;
+			const processedData = parseFloat(maxValue);
+	
+			if (!isNaN(processedData)) {
+				res.json({ hmax: processedData, unit: unit });
+			} else {
 				res.status(500).json({ error: 'Internal Server Error' });
 			}
-		} else {
-			res.status(500).json({ error: `Python process exited with code ${code}` });
+		} catch (error) {
+			res.status(500).json({ error: 'Internal Server Error' });
 		}
 	});
 
