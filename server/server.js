@@ -3,21 +3,11 @@ import { spawn } from 'child_process';
 import bodyParser from 'body-parser';
 import cors from 'cors';
 
-
 const app = express();
 const port = 3000;
 
 app.use(bodyParser.json());
 app.use(cors());
-
-//we dont need it actually since we use method='nearest' in python xarray
-/* const roundCoordinates = ({latitude, longitude}) => {
-    // Round latitude and longitude to numbers ending in .0 or .5.
-    const roundedLatitude = Math.floor(latitude * 2) / 2;
-    const roundedLongitude = Math.floor(longitude * 2) / 2;
-
-    return { latitude: roundedLatitude, longitude: roundedLongitude };
-} */
 
 app.get('/api/climate_data', (req, res) => {
   const {longitude, latitude} = req.query

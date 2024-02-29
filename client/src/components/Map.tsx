@@ -12,13 +12,6 @@ const Map = () => {
   const [error, setError] = useState<string | null>(null);
   const [selectedPosition, setSelectedPosition] = useState<[number, number] | null>(null);
 
-  /* useEffect(() => {
-    navigator.geolocation.getCurrentPosition(position => {
-        const { latitude, longitude } = position.coords;
-        setSelectedPosition([latitude, longitude])
-    });
-  }, []);  */
-
   useEffect(() => {
     if (selectedPosition?.[0] && selectedPosition[0]) {
       fetchHmax(selectedPosition)
